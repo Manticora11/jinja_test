@@ -1,4 +1,4 @@
-import jinja2
+from jinja2 import Environment, FileSystemLoader
 import requests
 
 
@@ -8,8 +8,11 @@ def get_catfacts_data():
 
 
 def main():
-    catfacts = get_catfacts_data()
-    print(catfacts)
+    file_loader = FileSystemLoader(".")
+    environment = Environment(loader=file_loader)
+    template = environment.get_template("base.html")
+    output = template.render(catfacts=get_catfacts_data())
+    print(output)
 
 
 if __name__ == "__main__":

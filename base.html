@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Lab Jinja Test</title>
+</head>
+<body>
+    <ul>
+        {% for fact in catfacts %}
+        <li>{{ fact['fact'] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
